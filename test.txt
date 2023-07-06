@@ -1,0 +1,7 @@
+- (SP | SL) & (MP | ML)
+- ~((MP & LPD) | (ML & LLD))
+- (SP -> LPS) & (SL -> LLS)
+- (LLD <-> ~LPD) & (LLS <-> ~LPS)
+- LPD
+- LPS
+? (MP & ~SP) | (ML & ~SL)

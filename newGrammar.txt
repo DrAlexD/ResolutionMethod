@@ -1,0 +1,15 @@
+Prog = {Rule} Task
+Rule = '-' LogicExprWithInversion {Operation LogicExprWithInversion}
+LogicExprWithInversion = '~' LogicExpr | LogicExpr
+LogicExpr = var | LogicExprInBrackets
+LogicExprInBrackets = '(' LogicExprWithInversion {Operation LogicExprWithInversion} ')'
+Operation = '&' | '|' | '->' | '<->'
+Task = '?' LogicExprWithInversion {Operation LogicExprWithInversion}
+
+First(Prog)={'-'}
+First(Rule)={'-'}
+First(LogicExprWithInversion)={'~', var, '('}
+First(LogicExpr)={var, '('}
+First(LogicExprInBrackets)={'('}
+First(Operation)={'&', '|', '->', '<->'}
+First(Task)={'?'}
